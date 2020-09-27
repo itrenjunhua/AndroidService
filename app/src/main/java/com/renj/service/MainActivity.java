@@ -1,14 +1,30 @@
 package com.renj.service;
 
-import androidx.appcompat.app.AppCompatActivity;
 
-import android.os.Bundle;
+import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity {
+import com.renj.service.local.LocalStartActivity;
+
+public class MainActivity extends BaseActivity {
+    private Button btLocalService;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+    protected int getLayoutId() {
+        return R.layout.activity_main;
+    }
+
+    @Override
+    protected void initView() {
+        btLocalService = findViewById(R.id.bt_local_service);
+    }
+
+    @Override
+    protected void initListener() {
+        btLocalService.setOnClickListener(v -> startActivity(LocalStartActivity.class));
+    }
+
+    @Override
+    protected void initPageData() {
+
     }
 }
