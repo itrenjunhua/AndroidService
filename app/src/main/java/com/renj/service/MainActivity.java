@@ -3,7 +3,7 @@ package com.renj.service;
 
 import android.widget.Button;
 
-import com.renj.service.local.LocalStartActivity;
+import com.renj.service.local.LocalServiceActivity;
 
 public class MainActivity extends BaseActivity {
     private Button btLocalService;
@@ -20,7 +20,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initListener() {
-        btLocalService.setOnClickListener(v -> startActivity(LocalStartActivity.class));
+        btLocalService.setOnClickListener(v -> startActivity(LocalServiceActivity.class));
     }
 
     @Override

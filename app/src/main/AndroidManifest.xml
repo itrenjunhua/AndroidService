@@ -10,7 +10,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"
+        <activity
+            android:name=".MainActivity"
             android:label="Android Service">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,12 +21,15 @@
         </activity>
 
         <activity
-            android:name=".local.LocalStartActivity"
-            android:label="开启本地服务" />
+            android:name=".local.LocalServiceActivity"
+            android:label="本地服务" />
 
         <service
             android:name=".local.LocalStartService"
-            android:label="开启本地服务" />
+            android:label="本地开启服务" />
+        <service
+            android:name=".local.LocalBinderService"
+            android:label="本地绑定服务" />
     </application>
 
 </manifest>

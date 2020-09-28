@@ -1,6 +1,8 @@
-package com.renj.service;
+package com.renj.service.utils;
 
 import android.widget.Toast;
+
+import com.renj.service.MyApplication;
 
 /**
  * Created by xsw on 2016/10/25.

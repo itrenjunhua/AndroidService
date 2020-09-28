@@ -6,7 +6,7 @@ import android.os.IBinder;
 
 import androidx.annotation.Nullable;
 
-import com.renj.service.ToastUtils;
+import com.renj.service.utils.ToastUtils;
 import com.renj.service.utils.Logger;
 
 /**
@@ -23,6 +23,7 @@ import com.renj.service.utils.Logger;
  * ======================================================================
  */
 public class LocalStartService extends Service {
+    private final String SERVICE_NAME = LocalStartService.class.getSimpleName();
 
     @Nullable
     @Override
@@ -45,14 +46,14 @@ public class LocalStartService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         Logger.i("LocalStartService onStartCommand()");
-        ToastUtils.showToast("本地服务 \"" + LocalStartService.class.getName() + "\" 启动");
+        ToastUtils.showToast("本地服务 \"" + SERVICE_NAME + "\" 启动");
         return super.onStartCommand(intent, flags, startId);
     }
 
     @Override
     public void onDestroy() {
         Logger.i("LocalStartService onDestroy()");
-        ToastUtils.showToast("本地服务 \"" + LocalStartService.class.getName() + "\" 停止");
+        ToastUtils.showToast("本地服务 \"" + SERVICE_NAME + "\" 停止");
         super.onDestroy();
     }
 }
