@@ -21,14 +21,14 @@ import java.util.List;
  * <p>
  * 创建时间：2020-09-28   09:59
  * <p>
- * 描述：本地绑定服务
+ * 描述：本地开启并且绑定服务
  * <p>
  * 修订历史：
  * <p>
  * ======================================================================
  */
-public class LocalBinderService extends Service {
-    public static final String SERVICE_NAME = LocalBinderService.class.getSimpleName();
+public class LocalStartAndBinderService extends Service {
+    public static final String SERVICE_NAME = LocalStartAndBinderService.class.getSimpleName();
     private LocalBinderImpl localBinder = new LocalBinderImpl();
     private List<BookBean> bookBeanList;
 
@@ -47,10 +47,20 @@ public class LocalBinderService extends Service {
     }
 
     @Override
+    public void onRebind(Intent intent) {
+        Logger.i(SERVICE_NAME + " onRebind()");
+        ToastUtils.showToast("\"" + SERVICE_NAME + "\" 重新绑定");
+        super.onRebind(intent);
+    }
+
+    @Override
     public boolean onUnbind(Intent intent) {
         Logger.i(SERVICE_NAME + " onUnbind()");
         ToastUtils.showToast("\"" + SERVICE_NAME + "\" 解绑");
-        return super.onUnbind(intent);
+        // return super.onUnbind(intent);
+        // 返回true，当服务未销毁并重新调用 bindService() 时回调 onRebind() 和 ServiceConnection 的 onServiceConnected() 方法；
+        // 否则，只会回调 ServiceConnection 的 onServiceConnected() 方法。
+        return true;
     }
 
     @Override

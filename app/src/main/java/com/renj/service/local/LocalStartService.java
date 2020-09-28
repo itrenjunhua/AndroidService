@@ -33,27 +33,27 @@ public class LocalStartService extends Service {
 
     @Override
     public void onCreate() {
-        Logger.i("LocalStartService onCreate()");
+        Logger.i(SERVICE_NAME + " onCreate()");
         super.onCreate();
     }
 
     @Override
     public void onStart(Intent intent, int startId) {
-        Logger.i("LocalStartService onStart()");
+        Logger.i(SERVICE_NAME + " onStart()");
         super.onStart(intent, startId);
     }
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        Logger.i("LocalStartService onStartCommand()");
-        ToastUtils.showToast("本地服务 \"" + SERVICE_NAME + "\" 启动");
+        Logger.i(SERVICE_NAME + " onStartCommand()");
+        ToastUtils.showToast("\"" + SERVICE_NAME + "\" 启动");
         return super.onStartCommand(intent, flags, startId);
     }
 
     @Override
     public void onDestroy() {
-        Logger.i("LocalStartService onDestroy()");
-        ToastUtils.showToast("本地服务 \"" + SERVICE_NAME + "\" 停止");
+        Logger.i(SERVICE_NAME + " onDestroy()");
+        ToastUtils.showToast("\"" + SERVICE_NAME + "\" 停止");
         super.onDestroy();
     }
 }

@@ -2,42 +2,25 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorWhite">
+    android:background="@color/colorWhite"
+    android:fillViewport="true">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
+        <LinearLayout style="@style/style_division_parent">
 
-            <View
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1"
-                android:background="@color/colorGrey" />
+            <View style="@style/style_line" />
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
-                android:text="开启服务"
-                android:textColor="@color/colorText"
-                android:textSize="16sp" />
+                style="@style/style_small_title"
+                android:text="开启服务" />
 
-            <View
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1"
-                android:background="@color/colorGrey" />
-
+            <View style="@style/style_line" />
         </LinearLayout>
 
         <LinearLayout
@@ -47,51 +30,25 @@
 
             <Button
                 android:id="@+id/bt_local_start"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="开启服务"
-                android:textColor="@color/colorText" />
+                style="@style/style_button"
+                android:text="开启服务" />
 
             <Button
                 android:id="@+id/bt_local_stop"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="停止服务"
-                android:textColor="@color/colorText" />
+                style="@style/style_button"
+                android:text="停止服务" />
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="8dp"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
+        <LinearLayout style="@style/style_division_parent">
 
-            <View
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1"
-                android:background="@color/colorGrey" />
+            <View style="@style/style_line" />
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
-                android:text="绑定服务"
-                android:textColor="@color/colorText"
-                android:textSize="16sp" />
+                style="@style/style_small_title"
+                android:text="绑定服务" />
 
-            <View
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1"
-                android:background="@color/colorGrey" />
-
+            <View style="@style/style_line" />
         </LinearLayout>
 
         <LinearLayout
@@ -101,19 +58,13 @@
 
             <Button
                 android:id="@+id/bt_local_bind"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="绑定服务"
-                android:textColor="@color/colorText" />
+                style="@style/style_button"
+                android:text="绑定服务" />
 
             <Button
                 android:id="@+id/bt_add_book"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="增加数据"
-                android:textColor="@color/colorText" />
+                style="@style/style_button"
+                android:text="增加数据" />
 
         </LinearLayout>
 
@@ -124,19 +75,77 @@
 
             <Button
                 android:id="@+id/bt_get_book"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="获取数据"
-                android:textColor="@color/colorText" />
+                style="@style/style_button"
+                android:text="获取数据" />
 
             <Button
                 android:id="@+id/bt_local_unbind"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="解绑服务"
-                android:textColor="@color/colorText" />
+                style="@style/style_button"
+                android:text="解绑服务" />
+
+        </LinearLayout>
+
+        <LinearLayout style="@style/style_division_parent">
+
+            <View style="@style/style_line" />
+
+            <TextView
+                style="@style/style_small_title"
+                android:text="本地开启并且绑定服务" />
+
+            <View style="@style/style_line" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/bt_start_bind_start"
+                style="@style/style_button"
+                android:text="开启服务" />
+
+            <Button
+                android:id="@+id/bt_start_bind_bind"
+                style="@style/style_button"
+                android:text="绑定服务" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/bt_start_bind_add"
+                style="@style/style_button"
+                android:text="增加数据" />
+
+            <Button
+                android:id="@+id/bt_start_bind_get"
+                style="@style/style_button"
+                android:text="获取数据" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/bt_start_bind_unbind"
+                style="@style/style_button"
+                android:text="解绑服务" />
+
+            <Button
+                android:id="@+id/bt_start_bind_stop"
+                style="@style/style_button"
+                android:text="停止服务" />
 
         </LinearLayout>
 

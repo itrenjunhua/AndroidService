@@ -39,6 +39,13 @@ public class LocalServiceActivity extends BaseActivity {
     private Button btGetBook;
     private Button btUnBindService;
 
+    private Button btStartBindStart;
+    private Button btStartBindBind;
+    private Button btStartBindAdd;
+    private Button btStartBindGet;
+    private Button btStartBindUnbind;
+    private Button btStartBindStop;
+
     private Random random = new Random();
 
     // 绑定服务连接对象
@@ -46,14 +53,30 @@ public class LocalServiceActivity extends BaseActivity {
     private ServiceConnection bindConnection = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
-            Logger.i("LocalBinderService onServiceConnected()");
+            Logger.i(LocalBinderService.SERVICE_NAME + " onServiceConnected()");
             iLocalBinder = (ILocalBinder) service;
         }
 
         @Override
         public void onServiceDisconnected(ComponentName name) {
-            Logger.i("LocalBinderService onServiceDisconnected()");
+            Logger.i(LocalBinderService.SERVICE_NAME + " onServiceDisconnected()");
             iLocalBinder = null;
+        }
+    };
+
+    // 开启并绑定服务连接对象
+    private ILocalBinder startBindLocalBinder;
+    private ServiceConnection startBindConnection = new ServiceConnection() {
+        @Override
+        public void onServiceConnected(ComponentName name, IBinder service) {
+            Logger.i(LocalStartAndBinderService.SERVICE_NAME + " onServiceConnected()");
+            startBindLocalBinder = (ILocalBinder) service;
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName name) {
+            Logger.i(LocalStartAndBinderService.SERVICE_NAME + " onServiceDisconnected()");
+            startBindLocalBinder = null;
         }
     };
 
@@ -71,6 +94,13 @@ public class LocalServiceActivity extends BaseActivity {
         btAddBook = findViewById(R.id.bt_add_book);
         btGetBook = findViewById(R.id.bt_get_book);
         btUnBindService = findViewById(R.id.bt_local_unbind);
+
+        btStartBindStart = findViewById(R.id.bt_start_bind_start);
+        btStartBindBind = findViewById(R.id.bt_start_bind_bind);
+        btStartBindAdd = findViewById(R.id.bt_start_bind_add);
+        btStartBindGet = findViewById(R.id.bt_start_bind_get);
+        btStartBindUnbind = findViewById(R.id.bt_start_bind_unbind);
+        btStartBindStop = findViewById(R.id.bt_start_bind_stop);
     }
 
     @Override
@@ -102,7 +132,7 @@ public class LocalServiceActivity extends BaseActivity {
                 return;
             }
 
-            int nextInt = random.nextInt();
+            int nextInt = random.nextInt(10000);
             iLocalBinder.addBook(new BookBean("书名-" + nextInt, "作者-" + nextInt,
                     (random.nextInt(10000) + 10000) / 100d));
         });
@@ -127,8 +157,71 @@ public class LocalServiceActivity extends BaseActivity {
 
         // 解绑服务
         btUnBindService.setOnClickListener(v -> {
+            if (iLocalBinder == null) {
+                ToastUtils.showToast("服务未绑定或已解绑");
+                return;
+            }
             unbindService(bindConnection);
             iLocalBinder = null;
+        });
+
+        // --------------------- 开启并绑定服务  --------------------- //
+        // 开启服务
+        btStartBindStart.setOnClickListener(v -> {
+            Intent intent = new Intent(this, LocalStartAndBinderService.class);
+            startService(intent);
+        });
+
+        // 绑定服务
+        btStartBindBind.setOnClickListener(v -> {
+            Intent intent = new Intent(this, LocalStartAndBinderService.class);
+            bindService(intent, startBindConnection, Service.BIND_AUTO_CREATE);
+        });
+
+        // 增加数据
+        btStartBindAdd.setOnClickListener(v -> {
+            if (startBindLocalBinder == null) {
+                ToastUtils.showToast("请先绑定服务");
+                return;
+            }
+
+            int nextInt = random.nextInt(10000);
+            startBindLocalBinder.addBook(new BookBean("书名-" + nextInt, "作者-" + nextInt,
+                    (random.nextInt(10000) + 10000) / 100d));
+        });
+
+        // 获取数据
+        btStartBindGet.setOnClickListener(v -> {
+            if (startBindLocalBinder == null) {
+                ToastUtils.showToast("请先绑定服务");
+                return;
+            }
+
+            List<BookBean> bookList = startBindLocalBinder.getBookList();
+            if (ListUtils.notEmpty(bookList)) {
+                ToastUtils.showToast("书本总数: " + bookList.size());
+                for (BookBean bookBean : bookList) {
+                    Logger.i("BookList => " + bookBean);
+                }
+            } else {
+                ToastUtils.showToast("没有数据");
+            }
+        });
+
+        // 解绑服务
+        btStartBindUnbind.setOnClickListener(v -> {
+            if (startBindLocalBinder == null) {
+                ToastUtils.showToast("服务未绑定或已解绑");
+                return;
+            }
+            unbindService(startBindConnection);
+            startBindLocalBinder = null;
+        });
+
+        // 停止服务
+        btStartBindStop.setOnClickListener(v -> {
+            Intent intent = new Intent(this, LocalStartAndBinderService.class);
+            stopService(intent);
         });
     }
 

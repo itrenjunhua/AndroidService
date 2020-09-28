@@ -30,6 +30,9 @@
         <service
             android:name=".local.LocalBinderService"
             android:label="本地绑定服务" />
+        <service
+            android:name=".local.LocalStartAndBinderService"
+            android:label="本地开启并且绑定服务" />
     </application>
 
 </manifest>
