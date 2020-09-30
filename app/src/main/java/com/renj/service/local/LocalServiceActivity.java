@@ -4,6 +4,7 @@ import android.app.Service;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.os.Build;
 import android.os.IBinder;
 import android.widget.Button;
 
@@ -45,6 +46,9 @@ public class LocalServiceActivity extends BaseActivity {
     private Button btStartBindGet;
     private Button btStartBindUnbind;
     private Button btStartBindStop;
+
+    private Button btStartFore;
+    private Button btStopFore;
 
     private Random random = new Random();
 
@@ -101,6 +105,9 @@ public class LocalServiceActivity extends BaseActivity {
         btStartBindGet = findViewById(R.id.bt_start_bind_get);
         btStartBindUnbind = findViewById(R.id.bt_start_bind_unbind);
         btStartBindStop = findViewById(R.id.bt_start_bind_stop);
+
+        btStartFore = findViewById(R.id.bt_fore_start);
+        btStopFore = findViewById(R.id.bt_fore_stop);
     }
 
     @Override
@@ -221,6 +228,24 @@ public class LocalServiceActivity extends BaseActivity {
         // 停止服务
         btStartBindStop.setOnClickListener(v -> {
             Intent intent = new Intent(this, LocalStartAndBinderService.class);
+            stopService(intent);
+        });
+
+        // --------------------- 前台服务  --------------------- //
+        // 开启服务
+        btStartFore.setOnClickListener(v -> {
+            // 需要申请 android.permission.FOREGROUND_SERVICE 权限
+            Intent intent = new Intent(this, LocalForeService.class);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                startForegroundService(intent);
+            } else {
+                startService(intent);
+            }
+        });
+
+        // 停止服务
+        btStopFore.setOnClickListener(v -> {
+            Intent intent = new Intent(this, LocalForeService.class);
             stopService(intent);
         });
     }

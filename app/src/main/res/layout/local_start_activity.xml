@@ -149,6 +149,34 @@
 
         </LinearLayout>
 
+        <LinearLayout style="@style/style_division_parent">
+
+            <View style="@style/style_line" />
+
+            <TextView
+                style="@style/style_small_title"
+                android:text="前台服务" />
+
+            <View style="@style/style_line" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/bt_fore_start"
+                style="@style/style_button"
+                android:text="开启服务" />
+
+            <Button
+                android:id="@+id/bt_fore_stop"
+                style="@style/style_button"
+                android:text="停止服务" />
+
+        </LinearLayout>
+
     </LinearLayout>
 
 </ScrollView>

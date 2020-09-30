@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.renj.service">
 
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
@@ -33,6 +35,9 @@
         <service
             android:name=".local.LocalStartAndBinderService"
             android:label="本地开启并且绑定服务" />
+        <service
+            android:name=".local.LocalForeService"
+            android:label="开启本地前台服务" />
     </application>
 
 </manifest>
