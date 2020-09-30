@@ -38,6 +38,15 @@
         <service
             android:name=".local.LocalForeService"
             android:label="开启本地前台服务" />
+
+
+        <activity
+            android:name=".remote.RemoteServiceActivity"
+            android:label="远程服务" />
+        <service
+            android:name=".remote.RemoteStartService"
+            android:label="远程开启服务"
+            android:process="com.renj.remote.service" />
     </application>
 
 </manifest>
