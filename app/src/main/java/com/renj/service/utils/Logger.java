@@ -24,16 +24,21 @@ public class Logger {
      */
     private static String TAG = "Logger";
     /**
-     * 是否打印全部类名(类的全路径名)，默认false
+     * 打印全类名类型  0：全类名； 1：简单类名； -1：不打印 默认简单类名
      */
-    private static boolean IS_FULL_CLASSNAME;
+    private static int fullClassNameType = 1;
 
     public static void setShowLog(boolean showLog) {
         Logger.showLog = showLog;
     }
 
-    public static void isFullClassName(boolean isFullClassName) {
-        Logger.IS_FULL_CLASSNAME = isFullClassName;
+    /**
+     * 打印全类名类型
+     *
+     * @param fullClassNameType 0：全类名； 1：简单类名； -1：不打印 默认简单类名
+     */
+    public static void fullClassName(int fullClassNameType) {
+        Logger.fullClassNameType = fullClassNameType;
     }
 
     /**
@@ -89,9 +94,13 @@ public class Logger {
      */
     @NonNull
     private static String getLogTitle() {
+        if (fullClassNameType <= 0) {
+            return "";
+        }
+
         StackTraceElement elm = Thread.currentThread().getStackTrace()[4];
         String className = elm.getClassName();
-        if (!IS_FULL_CLASSNAME) {
+        if (fullClassNameType == 1) {
             int dot = className.lastIndexOf('.');
             if (dot != -1) {
                 className = className.substring(dot + 1);

@@ -41,8 +41,7 @@
         </LinearLayout>
 
         <LinearLayout
-            style="@style/style_division_parent"
-            android:visibility="gone">
+            style="@style/style_division_parent">
 
             <View style="@style/style_line" />
 
@@ -56,8 +55,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:visibility="gone">
+            android:orientation="horizontal">
 
             <Button
                 android:id="@+id/bt_remote_bind"
@@ -74,8 +72,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:visibility="gone">
+            android:orientation="horizontal">
 
             <Button
                 android:id="@+id/bt_get_book"

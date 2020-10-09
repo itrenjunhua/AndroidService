@@ -154,9 +154,11 @@ public class LocalServiceActivity extends BaseActivity {
             List<BookBean> bookList = iLocalBinder.getBookList();
             if (ListUtils.notEmpty(bookList)) {
                 ToastUtils.showToast("书本总数: " + bookList.size());
+                Logger.i("\n-------- 书本总数: " + bookList.size() + " ------------");
                 for (BookBean bookBean : bookList) {
                     Logger.i("BookList => " + bookBean);
                 }
+                Logger.i("-----------------------------------");
             } else {
                 ToastUtils.showToast("没有数据");
             }
@@ -207,9 +209,11 @@ public class LocalServiceActivity extends BaseActivity {
             List<BookBean> bookList = startBindLocalBinder.getBookList();
             if (ListUtils.notEmpty(bookList)) {
                 ToastUtils.showToast("书本总数: " + bookList.size());
+                Logger.i("-------- 书本总数: " + bookList.size() + " ------------");
                 for (BookBean bookBean : bookList) {
                     Logger.i("BookList => " + bookBean);
                 }
+                Logger.i("-----------------------------------");
             } else {
                 ToastUtils.showToast("没有数据");
             }

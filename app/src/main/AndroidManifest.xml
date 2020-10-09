@@ -43,10 +43,27 @@
         <activity
             android:name=".remote.RemoteServiceActivity"
             android:label="远程服务" />
+
         <service
             android:name=".remote.RemoteStartService"
+            android:exported="true"
             android:label="远程开启服务"
-            android:process="com.renj.remote.service" />
+            android:process="com.renj.remote.start">
+            <intent-filter>
+                <action android:name="com.renj.remote.start" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </service>
+        <service
+            android:name=".remote.RemoteBinderService"
+            android:exported="true"
+            android:label="远程绑定服务"
+            android:process="com.renj.remote.binder">
+            <intent-filter>
+                <action android:name="com.renj.remote.binder" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

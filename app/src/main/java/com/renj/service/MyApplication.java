@@ -2,6 +2,8 @@ package com.renj.service;
 
 import android.app.Application;
 
+import com.renj.service.utils.Logger;
+
 /**
  * ======================================================================
  * <p>
@@ -22,6 +24,7 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
         application = this;
+        Logger.fullClassName(-1);
     }
 
     public static Application getApplication() {

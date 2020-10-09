@@ -51,6 +51,12 @@ public class BookBean implements Parcelable {
         dest.writeDouble(this.bookPrice);
     }
 
+    public void readFromParcel(Parcel in) {
+        this.bookName = in.readString();
+        this.bookAuthor = in.readString();
+        this.bookPrice = in.readDouble();
+    }
+
     protected BookBean(Parcel in) {
         this.bookName = in.readString();
         this.bookAuthor = in.readString();

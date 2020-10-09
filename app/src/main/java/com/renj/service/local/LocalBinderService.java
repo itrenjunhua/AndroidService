@@ -29,7 +29,7 @@ import java.util.List;
  */
 public class LocalBinderService extends Service {
     public static final String SERVICE_NAME = LocalBinderService.class.getSimpleName();
-    private LocalBinderImpl localBinder = new LocalBinderImpl();
+    private LocalBinderImpl localBinder;
     private List<BookBean> bookBeanList;
 
     @Override
@@ -41,6 +41,7 @@ public class LocalBinderService extends Service {
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
+        localBinder = new LocalBinderImpl();
         Logger.i(SERVICE_NAME + " onBind()");
         ToastUtils.showToast("\"" + SERVICE_NAME + "\" 绑定");
         return localBinder;
