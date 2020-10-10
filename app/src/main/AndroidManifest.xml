@@ -64,6 +64,20 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </service>
+
+        <activity
+            android:name=".pool.BinderPoolActivity"
+            android:label="AIDL 绑定池实例" />
+        <service
+            android:name=".pool.BinderPoolService"
+            android:exported="true"
+            android:label="AIDL 绑定池服务"
+            android:process="com.renj.remote.pool">
+            <intent-filter>
+                <action android:name="com.renj.remote.pool" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

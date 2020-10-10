@@ -13,10 +13,10 @@ import com.renj.service.R;
 import com.renj.service.bean.BookBean;
 import com.renj.service.utils.ListUtils;
 import com.renj.service.utils.Logger;
+import com.renj.service.utils.RandomUtils;
 import com.renj.service.utils.ToastUtils;
 
 import java.util.List;
-import java.util.Random;
 
 /**
  * ======================================================================
@@ -50,7 +50,6 @@ public class LocalServiceActivity extends BaseActivity {
     private Button btStartFore;
     private Button btStopFore;
 
-    private Random random = new Random();
 
     // 绑定服务连接对象
     private ILocalBinder iLocalBinder;
@@ -139,9 +138,9 @@ public class LocalServiceActivity extends BaseActivity {
                 return;
             }
 
-            int nextInt = random.nextInt(10000);
+            int nextInt = RandomUtils.randomInt(10000);
             iLocalBinder.addBook(new BookBean("书名-" + nextInt, "作者-" + nextInt,
-                    (random.nextInt(10000) + 10000) / 100d));
+                    (RandomUtils.randomInt(10000) + 10000) / 100d));
         });
 
         // 获取数据
@@ -194,9 +193,9 @@ public class LocalServiceActivity extends BaseActivity {
                 return;
             }
 
-            int nextInt = random.nextInt(10000);
+            int nextInt = RandomUtils.randomInt(10000);
             startBindLocalBinder.addBook(new BookBean("书名-" + nextInt, "作者-" + nextInt,
-                    (random.nextInt(10000) + 10000) / 100d));
+                    (RandomUtils.randomInt(10000) + 10000) / 100d));
         });
 
         // 获取数据

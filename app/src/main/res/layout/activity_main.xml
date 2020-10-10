@@ -25,4 +25,13 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/bt_local_service" />
 
+    <Button
+        android:id="@+id/bt_binder_pool"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="AIDL 绑定池"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bt_remote_service" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

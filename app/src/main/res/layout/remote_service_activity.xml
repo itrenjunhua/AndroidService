@@ -40,8 +40,7 @@
 
         </LinearLayout>
 
-        <LinearLayout
-            style="@style/style_division_parent">
+        <LinearLayout style="@style/style_division_parent">
 
             <View style="@style/style_line" />
 
@@ -83,75 +82,6 @@
                 android:id="@+id/bt_remote_unbind"
                 style="@style/style_button"
                 android:text="解绑服务" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            style="@style/style_division_parent"
-            android:visibility="gone">
-
-            <View style="@style/style_line" />
-
-            <TextView
-                style="@style/style_small_title"
-                android:text="本地开启并且绑定服务" />
-
-            <View style="@style/style_line" />
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:visibility="gone">
-
-            <Button
-                android:id="@+id/bt_start_bind_start"
-                style="@style/style_button"
-                android:text="开启服务" />
-
-            <Button
-                android:id="@+id/bt_start_bind_bind"
-                style="@style/style_button"
-                android:text="绑定服务" />
-
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:visibility="gone">
-
-            <Button
-                android:id="@+id/bt_start_bind_add"
-                style="@style/style_button"
-                android:text="增加数据" />
-
-            <Button
-                android:id="@+id/bt_start_bind_get"
-                style="@style/style_button"
-                android:text="获取数据" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:visibility="gone">
-
-            <Button
-                android:id="@+id/bt_start_bind_unbind"
-                style="@style/style_button"
-                android:text="解绑服务" />
-
-            <Button
-                android:id="@+id/bt_start_bind_stop"
-                style="@style/style_button"
-                android:text="停止服务" />
 
         </LinearLayout>
 

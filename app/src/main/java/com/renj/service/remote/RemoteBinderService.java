@@ -11,12 +11,12 @@ import com.renj.service.aidl.IRemoteBookBinder;
 import com.renj.service.bean.BookBean;
 import com.renj.service.utils.Logger;
 import com.renj.service.utils.ProgressUtils;
+import com.renj.service.utils.RandomUtils;
 import com.renj.service.utils.StringUtils;
 import com.renj.service.utils.ToastUtils;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 /**
  * ======================================================================
@@ -83,17 +83,16 @@ public class RemoteBinderService extends Service {
     }
 
     public class RemoteBookBinderImpl extends IRemoteBookBinder.Stub {
-        private Random random = new Random();
         private List<BookBean> bookBeans = new ArrayList<>();
 
         @Override
         public void addBookIn(BookBean bookBean) throws RemoteException {
             Logger.i(SERVICE_NAME + " addBookIn() ,BookBean: " + bookBean.toString() + currentProgressAndThread());
             if (StringUtils.isEmpty(bookBean.bookName)) {
-                int nextInt = random.nextInt(10000);
+                int nextInt = RandomUtils.randomInt(10000);
                 bookBean.bookName = "(Reset)书名-" + nextInt;
                 bookBean.bookAuthor = "作者-" + nextInt;
-                bookBean.bookPrice = (random.nextInt(10000) + 10000) / 100d;
+                bookBean.bookPrice = (RandomUtils.randomInt(10000) + 10000) / 100d;
                 Logger.i(SERVICE_NAME + " addBookIn() ,Reset BookBean: " + bookBean.toString() + currentProgressAndThread());
             }
             bookBeans.add(bookBean);
@@ -103,10 +102,10 @@ public class RemoteBinderService extends Service {
         public void addBookOut(BookBean bookBean) throws RemoteException {
             Logger.i(SERVICE_NAME + " addBookOut() ,BookBean: " + bookBean.toString() + currentProgressAndThread());
             if (StringUtils.isEmpty(bookBean.bookName)) {
-                int nextInt = random.nextInt(10000);
+                int nextInt = RandomUtils.randomInt(10000);
                 bookBean.bookName = "(Reset)书名-" + nextInt;
                 bookBean.bookAuthor = "作者-" + nextInt;
-                bookBean.bookPrice = (random.nextInt(10000) + 10000) / 100d;
+                bookBean.bookPrice = (RandomUtils.randomInt(10000) + 10000) / 100d;
                 Logger.i(SERVICE_NAME + " addBookOut() ,Reset BookBean: " + bookBean.toString() + currentProgressAndThread());
             }
             bookBeans.add(bookBean);
@@ -116,10 +115,10 @@ public class RemoteBinderService extends Service {
         public void addBookInOut(BookBean bookBean) throws RemoteException {
             Logger.i(SERVICE_NAME + " addBookInOut() ,BookBean: " + bookBean.toString() + currentProgressAndThread());
             if (StringUtils.isEmpty(bookBean.bookName)) {
-                int nextInt = random.nextInt(10000);
+                int nextInt = RandomUtils.randomInt(10000);
                 bookBean.bookName = "(Reset)书名-" + nextInt;
                 bookBean.bookAuthor = "作者-" + nextInt;
-                bookBean.bookPrice = (random.nextInt(10000) + 10000) / 100d;
+                bookBean.bookPrice = (RandomUtils.randomInt(10000) + 10000) / 100d;
                 Logger.i(SERVICE_NAME + " addBookInOut() ,Reset BookBean: " + bookBean.toString() + currentProgressAndThread());
             }
             bookBeans.add(bookBean);

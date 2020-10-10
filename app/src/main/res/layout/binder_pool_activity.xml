@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <Button
+        android:id="@+id/bt_pool_bind"
+        style="@style/style_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:text="绑定服务" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/bt_add_book"
+            style="@style/style_button"
+            android:text="增加Book信息" />
+
+        <Button
+            android:id="@+id/bt_get_book"
+            style="@style/style_button"
+            android:text="获取Book信息" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/bt_add_person"
+            style="@style/style_button"
+            android:text="增加Person信息" />
+
+        <Button
+            android:id="@+id/bt_get_person"
+            style="@style/style_button"
+            android:text="获取Person信息" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/bt_add_string"
+            style="@style/style_button"
+            android:text="增加String信息" />
+
+        <Button
+            android:id="@+id/bt_get_string"
+            style="@style/style_button"
+            android:text="获取String信息" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/bt_pool_unbind"
+        style="@style/style_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:text="解绑服务" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:scrollbars="none">
+
+        <TextView
+            android:id="@+id/tv_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/shape_radius6_grey_bg"
+            android:padding="6dp"
+            android:textColor="@color/colorText"
+            android:textSize="14sp" />
+
+    </ScrollView>
+
+</LinearLayout>

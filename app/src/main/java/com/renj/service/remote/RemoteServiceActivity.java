@@ -15,10 +15,10 @@ import com.renj.service.bean.BookBean;
 import com.renj.service.utils.ListUtils;
 import com.renj.service.utils.Logger;
 import com.renj.service.utils.ProgressUtils;
+import com.renj.service.utils.RandomUtils;
 import com.renj.service.utils.ToastUtils;
 
 import java.util.List;
-import java.util.Random;
 
 /**
  * ======================================================================
@@ -41,15 +41,6 @@ public class RemoteServiceActivity extends BaseActivity {
     private Button btAddBook;
     private Button btGetBook;
     private Button btRemoteUnbind;
-
-    private Button btStartBindStart;
-    private Button btStartBindBind;
-    private Button btStartBindAdd;
-    private Button btStartBindGet;
-    private Button btStartBindUnbind;
-    private Button btStartBindStop;
-
-    private Random random = new Random();
 
     // 绑定服务连接对象
     private IRemoteBookBinder iRemoteBookBinder;
@@ -81,13 +72,6 @@ public class RemoteServiceActivity extends BaseActivity {
         btAddBook = findViewById(R.id.bt_add_book);
         btGetBook = findViewById(R.id.bt_get_book);
         btRemoteUnbind = findViewById(R.id.bt_remote_unbind);
-
-        btStartBindStart = findViewById(R.id.bt_start_bind_start);
-        btStartBindBind = findViewById(R.id.bt_start_bind_bind);
-        btStartBindAdd = findViewById(R.id.bt_start_bind_add);
-        btStartBindGet = findViewById(R.id.bt_start_bind_get);
-        btStartBindUnbind = findViewById(R.id.bt_start_bind_unbind);
-        btStartBindStop = findViewById(R.id.bt_start_bind_stop);
     }
 
     @Override
@@ -132,27 +116,27 @@ public class RemoteServiceActivity extends BaseActivity {
             try {
                 // addBookIn
                 Logger.i("-------- addBookIn() ------------------------");
-                int nextIntIn = random.nextInt(10000);
+                int nextIntIn = RandomUtils.randomInt(10000);
                 BookBean bookBeanIn = new BookBean("书名-" + nextIntIn, "作者-" + nextIntIn,
-                        (random.nextInt(10000) + 10000) / 100d);
+                        (RandomUtils.randomInt(10000) + 10000) / 100d);
                 Logger.i(RemoteBinderService.SERVICE_NAME + " addBookIn() before info：" + bookBeanIn.toString());
                 iRemoteBookBinder.addBookIn(bookBeanIn);
                 Logger.i(RemoteBinderService.SERVICE_NAME + " addBookIn() after info：" + bookBeanIn.toString());
 
                 // addBookOut
                 Logger.i("-------- addBookOut() ------------------------");
-                int nextIntOut = random.nextInt(10000);
+                int nextIntOut = RandomUtils.randomInt(10000);
                 BookBean bookBeanOut = new BookBean("书名-" + nextIntOut, "作者-" + nextIntOut,
-                        (random.nextInt(10000) + 10000) / 100d);
+                        (RandomUtils.randomInt(10000) + 10000) / 100d);
                 Logger.i(RemoteBinderService.SERVICE_NAME + " addBookOut() before info：" + bookBeanOut.toString());
                 iRemoteBookBinder.addBookOut(bookBeanOut);
                 Logger.i(RemoteBinderService.SERVICE_NAME + " addBookOut() after info：" + bookBeanOut.toString());
 
                 // addBookInOut
                 Logger.i("-------- addBookInOut() ------------------------");
-                int nextIntInOut = random.nextInt(10000);
+                int nextIntInOut = RandomUtils.randomInt(10000);
                 BookBean bookBeanInOut = new BookBean("书名-" + nextIntInOut, "作者-" + nextIntInOut,
-                        (random.nextInt(10000) + 10000) / 100d);
+                        (RandomUtils.randomInt(10000) + 10000) / 100d);
                 Logger.i(RemoteBinderService.SERVICE_NAME + " addBookInOut() before info：" + bookBeanInOut.toString());
                 iRemoteBookBinder.addBookInOut(bookBeanInOut);
                 Logger.i(RemoteBinderService.SERVICE_NAME + " addBookInOut() after info：" + bookBeanInOut.toString());
