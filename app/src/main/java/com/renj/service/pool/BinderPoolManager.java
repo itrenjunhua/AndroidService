@@ -90,6 +90,9 @@ public class BinderPoolManager {
             ToastUtils.showToast("服务未绑定或已解绑");
             return;
         }
+        if (recipient != null)
+            iBinderPoolBinder.asBinder().unlinkToDeath(recipient, 0);
+
         applicationContext.unbindService(bindConnection);
         iBinderPoolBinder = null;
     }
