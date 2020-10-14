@@ -34,4 +34,13 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/bt_remote_service" />
 
+    <Button
+        android:id="@+id/bt_binder_callback"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="使用回调"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bt_binder_pool" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

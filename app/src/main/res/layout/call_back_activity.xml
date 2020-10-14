@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <Button
+        android:id="@+id/bt_callback_bind"
+        style="@style/style_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:text="绑定服务" />
+
+    <Button
+        android:id="@+id/bt_callback_register"
+        style="@style/style_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:text="注册监听" />
+
+    <Button
+        android:id="@+id/bt_callback_unregister"
+        style="@style/style_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:text="移除监听" />
+
+
+    <Button
+        android:id="@+id/bt_callback_unbind"
+        style="@style/style_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:text="解绑服务" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:scrollbars="none">
+
+        <TextView
+            android:id="@+id/tv_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/shape_radius6_grey_bg"
+            android:padding="6dp"
+            android:textColor="@color/colorText"
+            android:textSize="14sp" />
+
+    </ScrollView>
+
+</LinearLayout>

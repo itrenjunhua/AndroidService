@@ -78,6 +78,20 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </service>
+
+        <activity
+            android:name=".callback.CallBackActivity"
+            android:label="使用回调" />
+        <service
+            android:name=".callback.CallBackService"
+            android:exported="true"
+            android:label="使用回调"
+            android:process="com.renj.remote.callback">
+            <intent-filter>
+                <action android:name="com.renj.remote.callback" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>
