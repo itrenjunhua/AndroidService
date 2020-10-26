@@ -92,6 +92,13 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </service>
+
+        <activity
+            android:name=".messenger.MessengerActivity"
+            android:label="Messenger 使用" />
+        <service
+            android:name=".messenger.MessengerService"
+            android:label="Messenger 使用" />
     </application>
 
 </manifest>

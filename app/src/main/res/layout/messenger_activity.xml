@@ -6,7 +6,7 @@
     android:padding="16dp">
 
     <Button
-        android:id="@+id/bt_callback_bind"
+        android:id="@+id/bt_messenger_bind"
         style="@style/style_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -14,24 +14,23 @@
         android:text="绑定服务" />
 
     <Button
-        android:id="@+id/bt_callback_register"
+        android:id="@+id/bt_messenger_send"
         style="@style/style_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0"
-        android:text="注册监听" />
+        android:text="发送数据给服务器" />
 
     <Button
-        android:id="@+id/bt_callback_unregister"
+        android:id="@+id/bt_messenger_send2"
         style="@style/style_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0"
-        android:text="移除监听" />
-
+        android:text="发送数据并接收服务器返回" />
 
     <Button
-        android:id="@+id/bt_callback_unbind"
+        android:id="@+id/bt_messenger_unbind"
         style="@style/style_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

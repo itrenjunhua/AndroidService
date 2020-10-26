@@ -85,7 +85,7 @@
             android:layout_marginTop="12dp"
             android:background="@drawable/shape_radius6_grey_bg"
             android:padding="6dp"
-            android:textColor="@color/colorText"
+            android:textColor="@color/colorText2"
             android:textSize="14sp" />
 
     </ScrollView>
