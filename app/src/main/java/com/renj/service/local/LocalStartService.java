@@ -6,8 +6,9 @@ import android.os.IBinder;
 
 import androidx.annotation.Nullable;
 
-import com.renj.service.utils.ToastUtils;
 import com.renj.service.utils.Logger;
+import com.renj.service.utils.ProgressUtils;
+import com.renj.service.utils.ToastUtils;
 
 /**
  * ======================================================================
@@ -33,27 +34,31 @@ public class LocalStartService extends Service {
 
     @Override
     public void onCreate() {
-        Logger.i(SERVICE_NAME + " onCreate()");
+        Logger.i(SERVICE_NAME + " onCreate()" + currentProgressAndThread());
         super.onCreate();
     }
 
     @Override
     public void onStart(Intent intent, int startId) {
-        Logger.i(SERVICE_NAME + " onStart()");
+        Logger.i(SERVICE_NAME + " onStart()" + currentProgressAndThread());
         super.onStart(intent, startId);
     }
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        Logger.i(SERVICE_NAME + " onStartCommand()");
+        Logger.i(SERVICE_NAME + " onStartCommand()" + currentProgressAndThread());
         ToastUtils.showToast("\"" + SERVICE_NAME + "\" 启动");
         return super.onStartCommand(intent, flags, startId);
     }
 
     @Override
     public void onDestroy() {
-        Logger.i(SERVICE_NAME + " onDestroy()");
+        Logger.i(SERVICE_NAME + " onDestroy()" + currentProgressAndThread());
         ToastUtils.showToast("\"" + SERVICE_NAME + "\" 停止");
         super.onDestroy();
+    }
+
+    private String currentProgressAndThread() {
+        return " ,Progress Name: " + ProgressUtils.getProcessName(this) + " ,Thread Name： " + Thread.currentThread().getName();
     }
 }
