@@ -7,4 +7,5 @@
 * AIDL使用：通过AIDL进行IPC通讯
 * 多个AIDL时使用Binder池实现
 * 客户端设置监听到服务端，服务端数据发生改变了通过监听回调通知客户端
-* Messenger的使用
+* Messenger 的使用
+* IntentService 的使用

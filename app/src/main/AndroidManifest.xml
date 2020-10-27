@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.renj.service">
 
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
@@ -99,6 +100,14 @@
         <service
             android:name=".messenger.MessengerService"
             android:label="Messenger 使用" />
+
+        <activity
+            android:name=".intentservice.IntentServiceActivity"
+            android:label="IntentService 使用" />
+        <service
+            android:name=".intentservice.TestIntentService"
+            android:label="IntentService 使用"
+            tools:ignore="Instantiatable" />
     </application>
 
 </manifest>

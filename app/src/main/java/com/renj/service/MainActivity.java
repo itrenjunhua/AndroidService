@@ -4,6 +4,7 @@ package com.renj.service;
 import android.widget.Button;
 
 import com.renj.service.callback.CallBackActivity;
+import com.renj.service.intentservice.IntentServiceActivity;
 import com.renj.service.local.LocalServiceActivity;
 import com.renj.service.messenger.MessengerActivity;
 import com.renj.service.pool.BinderPoolActivity;
@@ -15,6 +16,7 @@ public class MainActivity extends BaseActivity {
     private Button btBinderPool;
     private Button btBinderCallBack;
     private Button btBinderMessenger;
+    private Button btBinderIntent;
 
     @Override
     protected int getLayoutId() {
@@ -28,6 +30,7 @@ public class MainActivity extends BaseActivity {
         btBinderPool = findViewById(R.id.bt_binder_pool);
         btBinderCallBack = findViewById(R.id.bt_binder_callback);
         btBinderMessenger = findViewById(R.id.bt_binder_messenger);
+        btBinderIntent = findViewById(R.id.bt_binder_intent);
     }
 
     @Override
@@ -41,6 +44,8 @@ public class MainActivity extends BaseActivity {
         btBinderCallBack.setOnClickListener(v -> startActivity(CallBackActivity.class));
 
         btBinderMessenger.setOnClickListener(v -> startActivity(MessengerActivity.class));
+
+        btBinderIntent.setOnClickListener(v -> startActivity(IntentServiceActivity.class));
     }
 
     @Override
