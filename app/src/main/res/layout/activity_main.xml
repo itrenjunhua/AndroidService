@@ -32,6 +32,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="AIDL 绑定池"
+        android:textAllCaps="false"
         android:textColor="@color/colorText"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -41,27 +42,41 @@
         android:id="@+id/bt_binder_callback"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="使用回调"
+        android:text="使用参数回调"
+        android:textAllCaps="false"
         android:textColor="@color/colorText"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/bt_binder_pool" />
 
     <Button
-        android:id="@+id/bt_binder_messenger"
+        android:id="@+id/bt_binder_remote"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Messenger使用"
+        android:text="使用 RemoteCallbackList 注册回调"
+        android:textAllCaps="false"
         android:textColor="@color/colorText"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/bt_binder_callback" />
 
     <Button
+        android:id="@+id/bt_binder_messenger"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Messenger使用"
+        android:textAllCaps="false"
+        android:textColor="@color/colorText"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bt_binder_remote" />
+
+    <Button
         android:id="@+id/bt_binder_intent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Intent Service使用"
+        android:textAllCaps="false"
         android:textColor="@color/colorText"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"

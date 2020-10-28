@@ -25,13 +25,13 @@ import com.renj.service.utils.ToastUtils;
  * <p>
  * 创建时间：2020-10-14   15:47
  * <p>
- * 描述：使用回调通知服务器数据改变
+ * 描述：使用 RemoteCallbackList 注册回调
  * <p>
  * 修订历史：
  * <p>
  * ======================================================================
  */
-public class CallBackActivity extends BaseActivity {
+public class RemoteCallbackListActivity extends BaseActivity {
     private Button btCallbackBind;
     private Button btCallbackRegister;
     private Button btCallbackUnRegister;
@@ -43,13 +43,13 @@ public class CallBackActivity extends BaseActivity {
     private ServiceConnection bindConnection = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
-            Logger.i(CallBackService.SERVICE_NAME + " onServiceConnected()" + currentProgressAndThread());
+            Logger.i(RemoteCallbackListService.SERVICE_NAME + " onServiceConnected()" + currentProgressAndThread());
             iCallBackBinder = ICallBackBinder.Stub.asInterface(service);
         }
 
         @Override
         public void onServiceDisconnected(ComponentName name) {
-            Logger.i(CallBackService.SERVICE_NAME + " onServiceDisconnected()" + currentProgressAndThread());
+            Logger.i(RemoteCallbackListService.SERVICE_NAME + " onServiceDisconnected()" + currentProgressAndThread());
             iCallBackBinder = null;
         }
     };
@@ -68,7 +68,7 @@ public class CallBackActivity extends BaseActivity {
 
     @Override
     protected int getLayoutId() {
-        return R.layout.call_back_activity;
+        return R.layout.remote_callback_list_activity;
     }
 
     @Override
@@ -86,7 +86,7 @@ public class CallBackActivity extends BaseActivity {
         btCallbackBind.setOnClickListener(v -> {
             Logger.i("Click Binder Service  " + currentProgressAndThread());
             Intent intent = new Intent();
-            intent.setAction("com.renj.remote.callback");
+            intent.setAction("com.renj.remote.remote");
             intent.setPackage("com.renj.service");
             bindService(intent, bindConnection, Service.BIND_AUTO_CREATE);
         });
@@ -130,9 +130,10 @@ public class CallBackActivity extends BaseActivity {
 
             Logger.i("Click UnBinder Service  " + currentProgressAndThread());
             Intent intent = new Intent();
-            intent.setAction("com.renj.remote.callback");
+            intent.setAction("com.renj.remote.remote");
             intent.setPackage("com.renj.service");
             unbindService(bindConnection);
+            iCallBackBinder = null;
         });
     }
 

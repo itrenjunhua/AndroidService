@@ -27,13 +27,13 @@ import java.util.TimerTask;
  * <p>
  * 创建时间：2020-10-14   14:07
  * <p>
- * 描述：
+ * 描述：使用 RemoteCallbackList 注册回调
  * <p>
  * 修订历史：
  * <p>
  * ======================================================================
  */
-public class CallBackService extends Service {
+public class RemoteCallbackListService extends Service {
     public static final String SERVICE_NAME = RemoteBinderService.class.getSimpleName();
 
     private RemoteCallbackList<ICallBack> remoteCallbackList = new RemoteCallbackList<>();

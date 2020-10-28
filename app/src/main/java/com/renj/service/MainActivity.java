@@ -3,7 +3,8 @@ package com.renj.service;
 
 import android.widget.Button;
 
-import com.renj.service.callback.CallBackActivity;
+import com.renj.service.callback.CalculateResultActivity;
+import com.renj.service.callback.RemoteCallbackListActivity;
 import com.renj.service.intentservice.IntentServiceActivity;
 import com.renj.service.local.LocalServiceActivity;
 import com.renj.service.messenger.MessengerActivity;
@@ -15,6 +16,7 @@ public class MainActivity extends BaseActivity {
     private Button btRemoteService;
     private Button btBinderPool;
     private Button btBinderCallBack;
+    private Button btBinderRemote;
     private Button btBinderMessenger;
     private Button btBinderIntent;
 
@@ -29,6 +31,7 @@ public class MainActivity extends BaseActivity {
         btRemoteService = findViewById(R.id.bt_remote_service);
         btBinderPool = findViewById(R.id.bt_binder_pool);
         btBinderCallBack = findViewById(R.id.bt_binder_callback);
+        btBinderRemote = findViewById(R.id.bt_binder_remote);
         btBinderMessenger = findViewById(R.id.bt_binder_messenger);
         btBinderIntent = findViewById(R.id.bt_binder_intent);
     }
@@ -41,7 +44,9 @@ public class MainActivity extends BaseActivity {
 
         btBinderPool.setOnClickListener(v -> startActivity(BinderPoolActivity.class));
 
-        btBinderCallBack.setOnClickListener(v -> startActivity(CallBackActivity.class));
+        btBinderCallBack.setOnClickListener(v -> startActivity(CalculateResultActivity.class));
+
+        btBinderRemote.setOnClickListener(v -> startActivity(RemoteCallbackListActivity.class));
 
         btBinderMessenger.setOnClickListener(v -> startActivity(MessengerActivity.class));
 

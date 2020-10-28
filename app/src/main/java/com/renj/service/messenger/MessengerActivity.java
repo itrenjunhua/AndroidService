@@ -73,11 +73,11 @@ public class MessengerActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-        btMessengerBind = (Button) findViewById(R.id.bt_messenger_bind);
-        btMessengerSend = (Button) findViewById(R.id.bt_messenger_send);
-        btMessengerSend2 = (Button) findViewById(R.id.bt_messenger_send2);
-        btMessengerUnbind = (Button) findViewById(R.id.bt_messenger_unbind);
-        tvContent = (TextView) findViewById(R.id.tv_content);
+        btMessengerBind = findViewById(R.id.bt_messenger_bind);
+        btMessengerSend = findViewById(R.id.bt_messenger_send);
+        btMessengerSend2 = findViewById(R.id.bt_messenger_send2);
+        btMessengerUnbind = findViewById(R.id.bt_messenger_unbind);
+        tvContent = findViewById(R.id.tv_content);
     }
 
     @Override
