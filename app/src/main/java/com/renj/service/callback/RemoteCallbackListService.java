@@ -8,8 +8,8 @@ import android.os.RemoteException;
 
 import androidx.annotation.Nullable;
 
-import com.renj.service.aidl.callback.ICallBack;
-import com.renj.service.aidl.callback.ICallBackBinder;
+import com.renj.service.aidl.callback.IBookCallBack;
+import com.renj.service.aidl.callback.IBookCallBackBinder;
 import com.renj.service.bean.BookBean;
 import com.renj.service.remote.RemoteBinderService;
 import com.renj.service.utils.Logger;
@@ -36,7 +36,7 @@ import java.util.TimerTask;
 public class RemoteCallbackListService extends Service {
     public static final String SERVICE_NAME = RemoteBinderService.class.getSimpleName();
 
-    private RemoteCallbackList<ICallBack> remoteCallbackList = new RemoteCallbackList<>();
+    private RemoteCallbackList<IBookCallBack> remoteCallbackList = new RemoteCallbackList<>();
     private CallBackBinderImpl callBackBinder;
 
     private Timer timer;
@@ -102,7 +102,7 @@ public class RemoteCallbackListService extends Service {
                     remoteCallbackList.beginBroadcast();
                     int registeredCallbackCount = remoteCallbackList.getRegisteredCallbackCount();
                     for (int i = 0; i < registeredCallbackCount; i++) {
-                        ICallBack callBack = remoteCallbackList.getBroadcastItem(i);
+                        IBookCallBack callBack = remoteCallbackList.getBroadcastItem(i);
                         try {
                             callBack.callBack(bookBean);
                         } catch (RemoteException e) {
@@ -127,16 +127,16 @@ public class RemoteCallbackListService extends Service {
         return " ,Progress Name: " + ProgressUtils.getProcessName(this) + " ,Thread Name： " + Thread.currentThread().getName();
     }
 
-    private class CallBackBinderImpl extends ICallBackBinder.Stub {
+    private class CallBackBinderImpl extends IBookCallBackBinder.Stub {
         @Override
-        public void registerCallBack(ICallBack callBack) throws RemoteException {
+        public void registerCallBack(IBookCallBack callBack) throws RemoteException {
             if (callBack != null) {
                 remoteCallbackList.register(callBack);
             }
         }
 
         @Override
-        public void unregisterCallBack(ICallBack callBack) throws RemoteException {
+        public void unregisterCallBack(IBookCallBack callBack) throws RemoteException {
             if (callBack != null) {
                 remoteCallbackList.unregister(callBack);
             }

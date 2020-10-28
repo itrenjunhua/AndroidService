@@ -15,6 +15,6 @@ import com.renj.service.bean.BookBean;
  * <p>
  * ======================================================================
  */
-interface ICallBack {
+interface IBookCallBack {
     void callBack(in BookBean bookBean);
 }

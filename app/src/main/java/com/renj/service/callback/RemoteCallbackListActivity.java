@@ -11,8 +11,8 @@ import android.widget.TextView;
 
 import com.renj.service.BaseActivity;
 import com.renj.service.R;
-import com.renj.service.aidl.callback.ICallBack;
-import com.renj.service.aidl.callback.ICallBackBinder;
+import com.renj.service.aidl.callback.IBookCallBack;
+import com.renj.service.aidl.callback.IBookCallBackBinder;
 import com.renj.service.bean.BookBean;
 import com.renj.service.utils.Logger;
 import com.renj.service.utils.ProgressUtils;
@@ -39,12 +39,12 @@ public class RemoteCallbackListActivity extends BaseActivity {
     private TextView tvContent;
 
     // 绑定服务连接对象
-    private ICallBackBinder iCallBackBinder;
+    private IBookCallBackBinder iCallBackBinder;
     private ServiceConnection bindConnection = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
             Logger.i(RemoteCallbackListService.SERVICE_NAME + " onServiceConnected()" + currentProgressAndThread());
-            iCallBackBinder = ICallBackBinder.Stub.asInterface(service);
+            iCallBackBinder = IBookCallBackBinder.Stub.asInterface(service);
         }
 
         @Override
@@ -54,7 +54,7 @@ public class RemoteCallbackListActivity extends BaseActivity {
         }
     };
 
-    private ICallBack iCallBack = new ICallBack.Stub() {
+    private IBookCallBack iCallBack = new IBookCallBack.Stub() {
 
         @Override
         public void callBack(BookBean bookBean) throws RemoteException {
